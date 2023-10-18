@@ -5,7 +5,7 @@ This python script calculates the horizontal distance traveled by a projectile c
 """
 
 import argparse
-import numpy as np
+# numpy library is removed from here as it is in requirements.txt.
 
 # Constants
 GRAVITY = 9.81  # Acceleration due to gravity (m/s^2)
