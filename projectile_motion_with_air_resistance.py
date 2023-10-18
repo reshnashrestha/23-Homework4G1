@@ -5,7 +5,7 @@ This script calculates the horizontal distance traveled by a projectile consider
 """
 
 import argparse
-import numpy as np
+# numpy library is removed from here as it is in requirements.txt.
 
 # Constants
 GRAVITY = 9.81  # Acceleration due to gravity (m/s^2)
@@ -35,8 +35,8 @@ def calculate_horizontal_distance(x0, y0, v0, launch_angle_deg, m):
     t_values = np.arange(0, t_max, dt)
 
     # Use functional programming to update velocities over time
-    vx_values = np.array(list(map(lambda t: x0 + v0 * np.cos(theta) * t, t_values)))
-    vy_values = np.array(list(map(lambda t: y0 + v0 * np.sin(theta) * t - 0.5 * GRAVITY * t**2, t_values)))
+    vx_values = x0 + v0 * np.cos(theta) * t_values
+    vy_values = y0 + v0 * np.sin(theta) * t_values - 0.5 * GRAVITY * t_values**2
 
     # Find the index when the projectile hits the ground (y = 0)
     ground_index = np.argmax(vy_values < 0)
