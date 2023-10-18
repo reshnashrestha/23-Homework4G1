@@ -26,9 +26,27 @@ def calculate_horizontal_distance(x0, y0, v0, launch_angle_deg, m):
     Returns:
     float: Horizontal distance traveled (meters)
     """
-    # Rest of your code...
+    # Convert launch angle to radians
+    theta = np.radians(launch_angle_deg)
 
-if __name__ == "__main":
+    # Time values
+    t_max = 20  # Maximum simulation time (s)
+    dt = 0.01   # Time step (s)
+    t_values = np.arange(0, t_max, dt)
+
+    # Use functional programming to update velocities over time
+    vx_values = np.array(list(map(lambda t: x0 + v0 * np.cos(theta) * t, t_values)))
+    vy_values = np.array(list(map(lambda t: y0 + v0 * np.sin(theta) * t - 0.5 * GRAVITY * t**2, t_values)))
+
+    # Find the index when the projectile hits the ground (y = 0)
+    ground_index = np.argmax(vy_values < 0)
+
+    # Calculate the horizontal distance traveled
+    x_final = vx_values[ground_index]
+
+    return x_final
+
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Projectile Horizontal Distance Calculator")
 
     parser.add_argument("--x0", type=float, required=True, help="Initial horizontal position (m)")
