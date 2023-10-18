@@ -12,7 +12,7 @@ GRAVITY = 9.81  # Acceleration due to gravity (m/s^2)
 AIR_RESISTANCE = 0.1   # Air resistance constant (kg/s)
 
 # Function to calculate the distance
-def calculate_horizontal_distance(x0, y0, v0, launch_angle_deg, m):
+def calculate_horizontal_distance(x0, y0, v0, launch_angle_deg, _m):
     """
     Calculate the horizontal distance traveled by a projectile with air resistance.
 
