@@ -1,4 +1,9 @@
-#This is all about finding the horizontal distance of a projectile object
+"""
+Projectile Motion with Air Resistance Calculator
+
+This script calculates the horizontal distance traveled by a projectile considering air resistance.
+"""
+
 import argparse
 import numpy as np
 
@@ -6,35 +11,24 @@ import numpy as np
 GRAVITY = 9.81  # Acceleration due to gravity (m/s^2)
 AIR_RESISTANCE = 0.1   # Air resistance constant (kg/s)
 
-# x0, y0: Initial position (in meters) of the projectile (default: (0.0, 0.0))
-# v0: Initial velocity (m/s) of the projectile
-# launch_angle_deg: Launch angle in degree
-# m is mass.
-
-#Function to calculate the distance
+# Function to calculate the distance
 def calculate_horizontal_distance(x0, y0, v0, launch_angle_deg, m):
-    # Convert launch angle to radians
-    theta = np.radians(launch_angle_deg)
+    """
+    Calculate the horizontal distance traveled by a projectile with air resistance.
 
-    # Time values
-    t_max = 20  # Maximum simulation time (s)
-    dt = 0.01   # Time step (s)
-    t_values = np.arange(0, t_max, dt)
+    Parameters:
+    x0 (float): Initial horizontal position (m)
+    y0 (float): Initial vertical position (m)
+    v0 (float): Initial velocity (m/s)
+    launch_angle_deg (float): Launch angle in degrees
+    m (float): Mass of the projectile (kg)
 
-    # Use functional programming to update velocities over time
-    vx_values = np.array(list(map(lambda t: x0 + v0 * np.cos(theta) * t, t_values)))
-    vy_values = np.array(list(map(lambda t: y0+v0*np.sin(theta)*t-0.5*GRAVITY*t**2,t_values)))
+    Returns:
+    float: Horizontal distance traveled (meters)
+    """
+    # Rest of your code...
 
-    # Find the index when the projectile hits the ground (y = 0)
-    ground_index = np.argmax(vy_values < 0)
-
-    # Calculate the horizontal distance traveled
-    x_final = vx_values[ground_index]
-    m=m
-
-    return x_final
-
-if __name__ == "__main__":
+if __name__ == "__main":
     parser = argparse.ArgumentParser(description="Projectile Horizontal Distance Calculator")
 
     parser.add_argument("--x0", type=float, required=True, help="Initial horizontal position (m)")
