@@ -1,11 +1,11 @@
 """
 Projectile Motion with Air Resistance Calculator
 
-This python script calculates the horizontal distance traveled by a projectile considering air resistance.
+This script calculates the horizontal distance traveled by a projectile considering air resistance.
 """
 
 import argparse
-# numpy library is removed from here as it is in requirements.txt.
+import numpy as np
 
 # Constants
 GRAVITY = 9.81  # Acceleration due to gravity (m/s^2)
