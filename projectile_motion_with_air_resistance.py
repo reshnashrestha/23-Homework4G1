@@ -1,7 +1,7 @@
 """
 Projectile Motion with Air Resistance Calculator
 
-This script calculates the horizontal distance traveled by a projectile considering air resistance.
+This python script calculates the horizontal distance traveled by a projectile considering air resistance.
 """
 
 import argparse
